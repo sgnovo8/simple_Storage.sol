@@ -2,6 +2,7 @@ pragma solidity >=0.4.22 <0.7.0;
 
 contract SimpleStorage {
     uint public storedData;
+    //add uint public viewedData;
 
     constructor() public {
         storedData = 100;
