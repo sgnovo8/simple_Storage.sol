@@ -1,0 +1,45 @@
+//SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.0;
+
+contract SimpleStorage {
+
+    string public favWord = "yah";
+    uint public favoriteNumber;
+    bool aboveFifty = true;
+
+
+    struct User {
+        string name;
+        uint favoriteNumber;
+        bool male;
+    }
+  
+    User public uniqueIndividual = User({favoriteNumber: 2, name: "Steve", male: false});
+
+    User[] public user;
+    mapping(string => uint) public nameToFavoriteNumber;
+
+    function addUser(string memory _name, uint _favoriteNumber, bool _male) public {
+        user.push(User(_name, _favoriteNumber, _male));
+        nameToFavoriteNumber[_name] = _favoriteNumber;
+    }
+
+
+    function storeNumber(uint256 _favoriteNumber) public {
+        favoriteNumber = _favoriteNumber;
+    }
+
+     function returnFavNumber() public returns (uint favoriteNumber){
+        return favoriteNumber;
+    }
+
+    function changeFavWord(string memory _favWord) public returns (string memory){
+         favWord = _favWord;
+    }
+
+    function returnFavWord() public view returns (string memory) {
+        return favWord;
+    }
+
+}
